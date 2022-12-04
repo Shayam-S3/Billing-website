@@ -117,7 +117,7 @@
                 <div class="card mb-0">
                     <div class="card-body">
                         <h4 class="card-title">Sales</h4>
-                        <div class="table-responsive dataview">
+                       
                             <table class="table datatable ">
                                 <thead>
                                     <tr>
@@ -176,7 +176,6 @@
                                    <?php $i++ ; } }?>
                                 </tbody>
                             </table>
-                        </div>
                     </div>
                 </div>
             </div>

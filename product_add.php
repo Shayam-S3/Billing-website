@@ -52,8 +52,35 @@
     <link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
 
     <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
-
+<style>
+    .form_error span {
+    width: 80%;
+    height: 35px;
+    padding:0;
+    font-size: 1.1em;
+    color: #D83D5A;
+    }
+    .form_error input {
+    border: 1px solid #D83D5A;
+    }
+    .form_success span {
+    width: 80%;
+    height: 35px;
+    padding:0;
+    font-size: 1.1em;
+    color: green;
+    }
+    .form_success input {
+    border: 1px solid green;
+    }
+    #error_msg {
+    color: red;
+    text-align: center;
+    margin: 10px auto;
+    }
+</style>
 <body>
     <div id="global-loader">
         <div class="whirly-loader"> </div>
@@ -162,7 +189,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                    <input type="text" name="p_code" placeholder="Enter Product Barcode" autocomplete="off" required>
+                                    <input type="text" name="p_code" id="p_code" placeholder="Enter Product Barcode" autocomplete="off" required>
+                                    <span></span>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -178,6 +206,9 @@
                                 <div class="col">
                                     <button  class="btn btn-primary btn-block" id="submit" type="submit" name="v_submit" >Submit</button>
                                 </div>
+                                <div class="col">
+                                    <button  class="btn btn-danger btn-block" id="reset" type="reset" name="v_reset" >Reset</button>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -186,7 +217,37 @@
         </div>
     </div>
 
-
+    <script type="text/javascript">
+    $('document').ready(function(){
+        var barcode_state = false;
+        $('#p_code').on('blur', function(){
+        var barcode = $('#p_code').val();
+        if (barcode == '') {
+            barcode_state = false;
+            return;
+        }
+        $.ajax({
+            url: 'barcodeCheck.php',
+            type: 'post',
+            data: {
+                'barcode_check' : 1,
+                'barcode' : barcode,
+            },
+            success: function(response){
+            if (response == 'taken' ) {
+                barcode_state = false;
+                $('#p_code').parent().addClass("form_error");
+                $('#p_code').siblings("span").text('Barcode already taken');
+            }else if (response == 'not_taken') {
+                barcode_state = true;
+                $('#p_code').parent().addClass("form_success");
+                $('#p_code').siblings("span").text('Barcode available');
+            }
+            }
+        });
+    });
+});
+    </script>
     <script src="assets/js/jquery-3.6.0.min.js"></script>
 
     <script src="assets/js/feather.min.js"></script>
