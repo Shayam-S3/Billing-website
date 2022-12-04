@@ -144,7 +144,6 @@
                 <div class="card mb-0">
                     <div class="card-body">
                         <h4 class="card-title">Products</h4>
-                        <div class="table-responsive dataview">
                             <table class="table datatable ">
                                 <thead>
                                     <tr>
@@ -160,7 +159,7 @@
                                 <tbody>
                                 <?php
                                 $connection=mysqli_connect('localhost','root','','billing_retail');
-                                $check_sql = "SELECT * FROM item ORDER BY id DESC ";
+                                $check_sql = "SELECT * FROM item ORDER BY id ";
                                 $sno_checkResult = mysqli_query($connection,$check_sql);
                                 while($row=mysqli_fetch_assoc($sno_checkResult)) {
                                    ?>
@@ -181,7 +180,6 @@
                                    <?php  } ?>
                                 </tbody>
                             </table>
-                        </div>
                     </div>
                 </div>
             </div>

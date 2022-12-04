@@ -22,10 +22,10 @@
 
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 </head>
 
 <body>
@@ -168,7 +168,7 @@
                         <div class="card mb-0">
                     <div class="card-body">
                         <h4 class="card-title">Barcodes</h4>
-                        <div class="table-responsive dataview">
+                        
                             <table class="table datatable ">
                                 <thead>
                                     <tr>
@@ -211,7 +211,7 @@
                                    <?php  } ?>
                                 </tbody>
                             </table>
-                        </div>
+                        
                     </div>
                 </div>
                         <!-- <div class="table-responsive dataview">
